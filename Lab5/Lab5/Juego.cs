@@ -70,14 +70,37 @@ namespace Lab5
 
         private int PreguntarMaximo()
         {
-            Console.WriteLine("Ingrese maximo: ");
-            return Int32.Parse(Console.ReadLine());
+            int max = 0;
+            do
+            {
+                Console.WriteLine("Ingrese maximo: ");
+                try
+                {
+                    max = Int32.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("El número ingresado no es válido. "+e.Message);
+                }
+            } while (max == 0);
+            return max;
         }
 
         private int PreguntarNumero()
         {
-            Console.WriteLine("Ingrese numero: ");
-            return Int32.Parse(Console.ReadLine());
+            int n = -1;
+            do
+            {
+                Console.WriteLine("Ingrese numero: ");
+                try
+                {
+                    n = Int32.Parse(Console.ReadLine());
+                } catch(Exception e)
+                {
+                    Console.WriteLine("El número ingresado no es válido. "+e.Message);
+                }
+            } while (n == -1);
+            return n;
         }
     }
 }
