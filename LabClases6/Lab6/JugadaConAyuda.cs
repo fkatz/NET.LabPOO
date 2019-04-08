@@ -19,11 +19,11 @@ namespace Lab6
             {
                 if (n < Numero)
                 {
-                    m += "Tu numero es mayor. ";
+                    m += "Tu numero es menor. ";
                 }
                 else
                 {
-                    m += "Tu numero es menor. ";
+                    m += "Tu numero es mayor. ";
                 }
                 if (Math.Abs(n - Numero) >= 100)
                 {

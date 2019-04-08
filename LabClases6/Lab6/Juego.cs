@@ -1,25 +1,24 @@
 ﻿using System;
 
-namespace Lab5
+namespace Lab6
 {
     public class Juego
     {
-        private int _record;
+        private int Record { get; set; }
 
         public Juego()
         {
-            this._record = 0;
+            Record = 0;
         }
 
         public void ComenzarJuego()
         {
-            Jugada jugada;
-            bool continuar = true;
-            while (continuar)
+            JugadaConAyuda jugada;
+            do
             {
                 Console.Clear();
                 Console.WriteLine("Bienvendio a Adivinar el numerin");
-                jugada = new Jugada(PreguntarMaximo());
+                jugada = new JugadaConAyuda(PreguntarMaximo());
                 jugada.Comparar(PreguntarNumero()); // el 1º afuera del while para mostrar el "Número incorrecto"
                 while (!jugada.Adivino)
                 {
@@ -29,23 +28,22 @@ namespace Lab5
                 Console.WriteLine("ADIVINASTEEEEEE! Solo te tomó " + jugada.Intentos + " intentos.");
                 CompararRecord(jugada);
                 jugada = null;
-                continuar = Continuar();
-            }
+            } while (Continuar());
         }
 
         private void CompararRecord(Jugada j)
         {
-            int old = this._record;
-            if (this._record == 0)
+            int old = Record;
+            if (Record == 0)
             {
                 Console.WriteLine("Tu nuevo record es: " + j.Intentos);
-                this._record = j.Intentos;
+                Record = j.Intentos;
             }
             else
             {
-                if (j.Intentos < this._record)
+                if (j.Intentos < Record)
                 {
-                    this._record = j.Intentos;
+                    Record = j.Intentos;
                     Console.WriteLine("Superaste el record de " + old + " intentos.");
                 }
                 else
