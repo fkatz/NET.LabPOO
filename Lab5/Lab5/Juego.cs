@@ -20,7 +20,7 @@ namespace Lab5
                 Console.Clear();
                 Console.WriteLine("Bienvendio a Adivinar el numerin");
                 jugada = new Jugada(PreguntarMaximo());
-                jugada.Comparar(PreguntarNumero());
+                jugada.Comparar(PreguntarNumero()); // el 1º afuera del while para mostrar el "Número incorrecto"
                 while (!jugada.Adivino)
                 {
                     Console.WriteLine("Número incorrecto.");
